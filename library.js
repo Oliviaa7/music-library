@@ -1,38 +1,49 @@
 const library = {
-  tracks: { t01: { id: "t01",
-                   name: "Code Monkey",
-                   artist: "Jonathan Coulton",
-                   album: "Thing a Week Three" },
-            t02: { id: "t02",
-                   name: "Model View Controller",
-                   artist: "James Dempsey",
-                   album: "WWDC 2003"},
-            t03: { id: "t03",
-                   name: "Four Thirty-Three",
-                   artist: "John Cage",
-                   album: "Woodstock 1952"}
-          },
-  playlists: { p01: { id: "p01",
-                      name: "Coding Music",
-                      tracks: ["t01", "t02"]
-                    },
-               p02: { id: "p02",
-                      name: "Other Playlist",
-                      tracks: ["t03"]
-                    }
-             }
+  tracks: {
+    t01: {
+      id: "t01",
+      name: "Code Monkey",
+      artist: "Jonathan Coulton",
+      album: "Thing a Week Three"
+    },
+    t02: {
+      id: "t02",
+      name: "Model View Controller",
+      artist: "James Dempsey",
+      album: "WWDC 2003"
+    },
+    t03: {
+      id: "t03",
+      name: "Four Thirty-Three",
+      artist: "John Cage",
+      album: "Woodstock 1952"
+    }
+  },
+  playlists: {
+    p01: {
+      id: "p01",
+      name: "Coding Music",
+      tracks: ["t01", "t02"]
+    },
+    p02: {
+      id: "p02",
+      name: "Other Playlist",
+      tracks: ["t03"]
+    }
+  }
 };
-
-/////////////////////////////
-// FUNCTIONS TO IMPLEMENT:
-/////////////////////////////
 
 // prints a list of all playlists, in the form:
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
 const printPlaylists = function() {
 
-}
+  for (const key in library.playlists) {
+    const playlist = library.playlists[key]
+    console.log(`${playlist.id}: ${playlist.name} - ${playlist.tracks.length} tracks`);
+  }
+};
+printPlaylists();  
 
 
 // prints a list of all tracks, using the following format:
@@ -40,8 +51,12 @@ const printPlaylists = function() {
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 const printTracks = function() {
-
-}
+  for (const key in library.tracks) {
+    const track = library.tracks[key]
+    console.log(`${track.id}: ${track.name} by ${track.artist} (${track.album})`);
+  }
+};
+printTracks();
 
 
 // prints a list of tracks for a given playlist, using the following format:
@@ -50,32 +65,32 @@ const printTracks = function() {
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 const printPlaylist = function(playlistId) {
 
-}
+};
 
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
 
-}
+};
 
 
 // generates a unique id
 // (already implemented: use this for addTrack and addPlaylist)
-const generateUid = function() {
+const generateUid = () => {
   return Math.floor((1 + Math.random()) * 0x10000).toString(16).substring(1);
-}
+};
 
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
 
-}
+};
 
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
 
-}
+};
 
 
 // STRETCH:
@@ -85,4 +100,4 @@ const addPlaylist = function(name) {
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
 const printSearchResults = function(query) {
 
-}
+};
