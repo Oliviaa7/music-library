@@ -33,6 +33,7 @@ const library = {
   }
 };
 
+
 // prints a list of all playlists, in the form:
 // p01: Coding Music - 2 tracks
 // p02: Other Playlist - 1 tracks
@@ -42,8 +43,7 @@ const printPlaylists = function() {
     const playlist = library.playlists[key]
     console.log(`${playlist.id}: ${playlist.name} - ${playlist.tracks.length} tracks`);
   }
-};
-printPlaylists();  
+}; 
 
 
 // prints a list of all tracks, using the following format:
@@ -56,7 +56,7 @@ const printTracks = function() {
     console.log(`${track.id}: ${track.name} by ${track.artist} (${track.album})`);
   }
 };
-printTracks();
+
 
 
 // prints a list of tracks for a given playlist, using the following format:
@@ -65,7 +65,15 @@ printTracks();
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 const printPlaylist = function(playlistId) {
 
+  const playlist = playlistId
+  console.log(`${playlist.id}: ${playlist.name} - ${playlist.tracks.length} tracks`);
+
+  for (const trackId of playlist.tracks) {
+    const track = library.tracks[trackId];
+    console.log(`${track.id}: ${track.name} by ${track.artist} (${track.album})`)
+  }
 };
+printPlaylist(library.playlists.p01);
 
 
 // adds an existing track to an existing playlist
@@ -83,15 +91,15 @@ const generateUid = () => {
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-
+  
 };
-
+addTrack(generateUid());
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
 
 };
-
+addPlaylist(generateUid());
 
 // STRETCH:
 // given a query string string, prints a list of tracks
