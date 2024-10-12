@@ -40,10 +40,10 @@ const library = {
 const printPlaylists = function() {
 
   for (const key in library.playlists) {
-    const playlist = library.playlists[key]
+    const playlist = library.playlists[key];
     console.log(`${playlist.id}: ${playlist.name} - ${playlist.tracks.length} tracks`);
   }
-}; 
+};
 
 
 // prints a list of all tracks, using the following format:
@@ -52,7 +52,7 @@ const printPlaylists = function() {
 // t03: Four Thirty-Three by John Cage (Woodstock 1952)
 const printTracks = function() {
   for (const key in library.tracks) {
-    const track = library.tracks[key]
+    const track = library.tracks[key];
     console.log(`${track.id}: ${track.name} by ${track.artist} (${track.album})`);
   }
 };
@@ -65,21 +65,22 @@ const printTracks = function() {
 // t02: Model View Controller by James Dempsey (WWDC 2003)
 const printPlaylist = function(playlistId) {
 
-  const playlist = playlistId
+  const playlist = playlistId;
   console.log(`${playlist.id}: ${playlist.name} - ${playlist.tracks.length} tracks`);
 
   for (const trackId of playlist.tracks) {
     const track = library.tracks[trackId];
-    console.log(`${track.id}: ${track.name} by ${track.artist} (${track.album})`)
+    console.log(`${track.id}: ${track.name} by ${track.artist} (${track.album})`);
   }
 };
+printPlaylist(library.playlists.p01);
 
 
 // adds an existing track to an existing playlist
 const addTrackToPlaylist = function(trackId, playlistId) {
-  playlistId.tracks.push(trackId.id)
+  playlistId.tracks.push(trackId.id);
 };
-addTrackToPlaylist(library.tracks.t01, library.playlists.p02)
+addTrackToPlaylist(library.tracks.t01, library.playlists.p02);
 
 
 // generates a unique id
@@ -91,21 +92,31 @@ const generateUid = () => {
 
 // adds a track to the library
 const addTrack = function(name, artist, album) {
-  
+  let tracks = library.tracks;
+  tracks.t04 = {
+    id: generateUid(),
+    name: name,
+    artist: artist,
+    album: album
+  };
 };
-addTrack(generateUid());
+addTrack("Record Player (with AJR)", "Daisy the Great", "Single");
 
 // adds a playlist to the library
 const addPlaylist = function(name) {
-
+  let playlists = library.playlists;
+  playlists.p03 = {
+    id: generateUid(),
+    name: name
+  };
 };
-addPlaylist(generateUid());
+addPlaylist("Please Be Done");
 
 // STRETCH:
 // given a query string string, prints a list of tracks
 // where the name, artist or album contains the query string (case insensitive)
-// tip: use "string".search("tri") 
+// tip: use "string".search("tri")
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/search
-const printSearchResults = function(query) {
+// const printSearchResults = function(query) {
 
-};
+// };
